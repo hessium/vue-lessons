@@ -10,7 +10,7 @@
       </button>
     </div>
     <ul>
-      <WordItem v-for="item in words"
+      <TransitionItem v-for="item in words"
                 v-model="hideTranslate"
                 @onMiddleHide="onMiddleHide"
                 :key="item.id"
@@ -22,7 +22,7 @@
 
 <script setup>
 import {ref, watch} from "vue";
-import WordItem from "@/components/WordItem.vue";
+import TransitionItem from "@/components/Transition/TransitionItem.vue";
 
 const words = ref([
   {
@@ -75,6 +75,64 @@ watch(
 
 </script>
 
-<style scoped>
+<style  lang="scss">
+button {
+  cursor: pointer;
+}
+.words {
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  &__item {
+    display: flex;
+    gap: 40px;
+    padding-bottom: 10px;
+  }
+  &__original {
+    width: 20%;
+    padding: 10px;
+  }
+  &__translation {
+    flex-grow: 1;
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
+    &.hide {
+      &:after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        backdrop-filter: blur(5px);
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      &:hover {
+        & .words__show {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &__show {
+    position: absolute;
+    opacity: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: red;
+  }
+}
 </style>

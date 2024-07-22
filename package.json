@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@cortex-js/compute-engine": "^0.25.1",
+    "@primevue/themes": "^4.0.0",
     "@tiptap-pro/extension-mathematics": "^2.10.3",
     "@tiptap-pro/extension-unique-id": "^2.10.3",
     "@tiptap/pm": "^2.5.1",
@@ -16,8 +17,11 @@
     "core-js": "^3.8.3",
     "katex": "^0.16.11",
     "mathlive": "^0.100.0",
+    "pinia": "^2.1.7",
+    "primevue": "^4.0.0",
     "swiper": "^11.1.5",
-    "vue": "^3.2.13"
+    "vue": "^3.2.13",
+    "vue-router": "^4.4.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",
